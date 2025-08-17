@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Callbacks JavaScript</title>
+    <style>
+      body {
+        background-color: rgb(75, 73, 73);
+        /* color: white; */
+      }
+      .danger {
+        background-color: red;
+      }
+
+      .student_container {
+        margin-top: 20px;
+        border: 1px solid #444;
+        border-radius: 8px;
+        padding: 10px;
+        background: #f9f9f9;
+      }
+      .student_header,
+      .student_row {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        padding: 8px;
+        border-bottom: 1px solid #ddd;
+      }
+      .student_header {
+        font-weight: bold;
+        background: #eee;
+      }
+      .student_row span {
+        padding: 4px;
+      }
+      .loading {
+        width: 100%;
+
+        text-align: center;
+        font-family: 'Lucida Sans';
+        font-weight: lighter;
+        padding: 45px;
+      }
+      .records {
+        font-weight: 700;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-around;
+        border-top: 2px solid grey;
+        padding: 10px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="profile-head">
+      <h1>Student List</h1>
+    </div>
+
+    <div id="profile_container"></div>
+
+    <script src="./callback.js" defer></script>
+  </body>
+</html>
