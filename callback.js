@@ -1,8 +1,4 @@
-// function toggle(e) {
-//   e.target.classList.toggle('danger');
-// }
-// document.querySelector('button').addEventListener('click', toggle);
-
+import { students } from './data.js';
 const posts = [
   { title: 'Post One', body: 'this is post one' },
   { title: 'Post two', body: 'this is post two' },
@@ -64,71 +60,6 @@ const posts = [
 // const studentSpan = document.getElementsByTagName('span');
 // console.log(studentSpan);
 // console.log(studentDiv);
-const students = [
-  {
-    name: 'Muhammad Shah',
-    rollNo: 23523,
-    degree: 'Bachelors',
-    occupation: 'Software Engineer',
-    Institute: 'Virtual University of Pakistan',
-  },
-  {
-    name: 'Umair Amin',
-    rollNo: 23524,
-    degree: 'Associate',
-    occupation: 'Computer Scientist',
-    Institute: 'University of Lahore',
-  },
-  {
-    name: 'Ayesha Khan',
-    rollNo: 23525,
-    degree: 'O-Level',
-    occupation: 'IT Specialist',
-    Institute: 'FAST NUCES',
-  },
-  {
-    name: 'Ali Raza',
-    rollNo: 23526,
-    degree: 'A-Level',
-    occupation: 'AI Researcher',
-    Institute: 'NUST',
-  },
-  {
-    name: 'Fatima Zahra',
-    rollNo: 23527,
-    degree: 'B.Ed',
-    occupation: 'Data Scientist',
-    Institute: 'Punjab University',
-  },
-  {
-    name: 'Ahmed Hassan',
-    rollNo: 23528,
-    degree: 'Bachelors',
-    occupation: 'Cyber Security Analyst',
-    Institute: 'COMSATS Islamabad',
-  },
-  {
-    name: 'Zainab Bukhari',
-    rollNo: 23529,
-    degree: 'Associate',
-    occupation: 'Software Engineer',
-    Institute: 'LUMS',
-  },
-  {
-    name: 'Hassan Ali',
-    rollNo: 23530,
-    degree: 'O-Level',
-    occupation: 'Game Developer',
-    Institute: 'Superior University',
-  },
-  {
-    name: 'Muqaddas Rafique',
-    rollNo: 25430,
-    degree: 'A-Level',
-    occupation: 'HR Associate',
-    Institute: 'FAST University',
-  },
-];
 
 let totalRecords = 0;
 function getStudents() {
@@ -173,6 +104,12 @@ function getStudents() {
   const BEdSpan = document.createElement('span');
   BEdSpan.classList.add('records');
 
+  let bachelorCount = 0;
+  let associateCount = 0;
+  let bEdCount = 0;
+  let aLevelCount = 0;
+  let oLevelCount = 0;
+
   setTimeout(() => {
     loading.remove();
     students.forEach((student) => {
@@ -187,21 +124,24 @@ function getStudents() {
       `;
 
       if (student.degree == 'Bachelors') {
-        bachelorSpan.textContent = `Bachelors:${student.length}`;
+        bachelorCount++;
       } else if (student.degree == 'Associate') {
-        AssociateSpan.textContent = `Associate:${student.length}`;
+        associateCount++;
       } else if (student.degree == 'B.Ed') {
-        BEdSpan.textContent = `B.Ed:${student.length}`;
-      } else if (student.degree == 'B.Ed') {
-        BEdSpan.textContent = `B.Ed:${student.length}`;
+        bEdCount++;
+      } else if (student.degree == 'A-Level') {
+        aLevelCount++;
+      } else if (student.degree == 'O-Level') {
+        oLevelCount++;
       }
       container.appendChild(studentRow);
 
-      recordSpan.textContent = `Total Records:${students.length} `;
-      AssociateSpan.textContent = `Associates:${students.length}`;
-      OLevelSpan.textContent = `O-Level:${students.length}`;
-      ALevelSpan.textContent = `A-Level:${students.length}`;
-      BEdSpan.textContent = `B.Ed:${students.length}`;
+      recordSpan.textContent = `Total Records: ${students.length} `;
+      bachelorSpan.textContent = `Bachelors : ${bachelorCount}`;
+      AssociateSpan.textContent = `Associates: ${associateCount}`;
+      BEdSpan.textContent = `B.Ed: ${bEdCount}`;
+      OLevelSpan.textContent = `O-Level: ${oLevelCount}`;
+      ALevelSpan.textContent = `A-Level: ${aLevelCount}`;
 
       footerTable.appendChild(recordSpan);
       footerTable.appendChild(bachelorSpan);
